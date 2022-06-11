@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slides in Javascript | Toggles</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui;
+        }
+
+        body {
+            flex-wrap: wrap;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            position: absolute;
+            top: 0%;
+        }
+
+        div {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 23%;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+            margin: 40px 10px 0;
+            min-width: 250px;
+        }
+
+        header {
+            display: flex;
+            padding: 15px;
+            width: 100%;
+            justify-content: right;
+        }
+
+        h3 {
+            margin-top: 80px;
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        span {
+            position: absolute;
+            padding: 10px;
+            background-color: white;
+        }
+
+        h1 {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-family: cursive;
+            font-size: 40px;
+            transform: rotate(-2deg);
+
+        }
+
+        h1:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        p {
+            padding: 10px;
+            text-align: justify;
+            padding-top: 25px;
+        }
+
+        /* Right to Left & Left to Right */
+        .toggleRightToLeft,
+        .toggleLeftToRight {
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            transform: scaleX(0);
+        }
+
+        /* Top to Bottom & bottom to top */
+        .toggleBottomToTop,
+        .toggleTopToBottom {
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            transform: scaleY(0);
+        }
+
+        /* Left To Right  */
+        .toggleLeftToRight {
+            transform-origin: left;
+        }
+
+        /* Right to Left */
+        .toggleRightToLeft {
+            transform-origin: right;
+        }
+
+        /* Top to Bottom */
+        .toggleTopToBottom {
+            transform-origin: top;
+        }
+
+        /* Bottom to Top */
+        .toggleBottomToTop {
+            transform-origin: bottom;
+        }
+
+        /* All TO ALL */
+        .togglerBottomToTop,
+        .togglerTopToBottom,
+        .togglerRightToLeft,
+        .togglerLeftToRight {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Smoothly Toogles In JavaScript</h2>
+    <div>
+        <header><button onclick="toggleElement(span , 'togglerLeftToRight')">Click to Toggle</button></header>
+        <h3>Left to right</h3>
+        <span class="toggleLeftToRight" id="span">
+            <h1 title="Close the section" onclick="toggleElement(span , 'togglerLeftToRight')">x</h1>
+            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae aspernatur sc Lorem ipsum dolor sit.
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet c earum exercitationem
+                sequi corporis neque tenetur voluptas aperiam, cupiditate eos voluptatem. Ad, perspiciatis molestias.
+                Consequatur corrupti nisi veritatis ullam qui eveniet. A, quae?</p>
+        </span>
+    </div>
+    <div>
+        <header><button onclick="toggleElement(span2 , 'togglerRightToLeft' )">Click to Toggle</button></header>
+        <h3>Right to left</h3>
+        <span class="toggleRightToLeft" id="span2">
+            <h1 title="Close the section" onclick="toggleElement(span2 , 'togglerRightToLeft')">x</h1>
+            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae aspernatur sc Lorem ipsum dolor sit.
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet c earum exercitationem
+                sequi corporis neque tenetur voluptas aperiam, cupiditate eos voluptatem. Ad, perspiciatis molestias.
+                Consequatur corrupti nisi veritatis ullam qui eveniet. A, quae?</p>
+        </span>
+    </div>
+    <div>
+        <header><button onclick="toggleElement(span3 , 'togglerTopToBottom')">Click to Toggle</button></header>
+        <h3>Top To Bottom</h3>
+        <span class="toggleTopToBottom" id="span3">
+            <h1 title="Close the section" onclick="toggleElement(span3 , 'togglerTopToBottom')">x</h1>
+            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae aspernatur sc Lorem ipsum dolor sit.
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet c earum exercitationem
+                sequi corporis neque tenetur voluptas aperiam, cupiditate eos voluptatem. Ad, perspiciatis molestias.
+                Consequatur corrupti nisi veritatis ullam qui eveniet. A, quae?</p>
+        </span>
+    </div>
+    <div>
+        <header><button onclick="toggleElement(span4 , 'togglerBottomToTop')">Click to Toggle</button></header>
+        <h3>Bottom To Top</h3>
+        <span class="toggleBottomToTop" id="span4">
+            <h1 title="Close the section" onclick="toggleElement(span4 , 'togglerBottomToTop')">x</h1>
+            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae aspernatur sc Lorem ipsum dolor sit.
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet c earum exercitationem
+                sequi corporis neque tenetur voluptas aperiam, cupiditate eos voluptatem. Ad, perspiciatis molestias.
+                Consequatur corrupti nisi veritatis ullam qui eveniet. A, quae?</p>
+        </span>
+    </div>
+
+
+</body>
+<!-- custom Javascript  -->
+
+<!-- In this function we calls the function as where we want to toggle any element and then we put the id of that element in the funciton arruments and className which we want to toggle, We can also target a single element from many handlers by calling below function on Onclick events of the handlers. -->
+<script>
+    function toggleElement(element_ID, className) {
+        element_ID.classList.toggle(className)
+    }
+</script>
+
+</html>
